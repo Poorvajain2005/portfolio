@@ -1,4 +1,5 @@
 import profilePhoto from "@/assets/profile-photo.jpg";
+import { SkillsTabs } from "@/components/SkillsTabs";
 
 const skills = [
   "React", "Next.js", "TypeScript", "Python", "Node.js",
@@ -67,9 +68,9 @@ export const About = () => {
               </div>
             </div>
 
-            {/* Skills Section */}
+            {/* Quick Skills Overview */}
             <div className="space-y-4">
-              <h4 className="text-xl font-semibold">Technical Skills</h4>
+              <h4 className="text-xl font-semibold">Core Technologies</h4>
               <div className="flex flex-wrap gap-3">
                 {skills.map((skill, index) => (
                   <span
@@ -102,6 +103,19 @@ export const About = () => {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Detailed Skills Section */}
+        <div className="mt-20">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl font-bold mb-4">
+              Technical <span className="text-gradient-primary">Expertise</span>
+            </h3>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Dive deeper into my technical skills and experience across different domains
+            </p>
+          </div>
+          <SkillsTabs />
         </div>
       </div>
     </section>

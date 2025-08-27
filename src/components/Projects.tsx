@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Github, ExternalLink, Code2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import dashboardImg from "@/assets/project-dashboard.jpg";
@@ -136,34 +137,78 @@ const ProjectCard = ({ project }: { project: typeof projects[0] }) => {
 };
 
 export const Projects = () => {
+  const [activeTab, setActiveTab] = useState<'featured' | 'all' | 'web' | 'ml'>('featured');
+  
   const featuredProjects = projects.filter(p => p.featured);
-  const otherProjects = projects.filter(p => !p.featured);
+  const webProjects = projects.filter(p => 
+    p.tags.some(tag => ['React', 'Next.js', 'Vue.js'].includes(tag))
+  );
+  const mlProjects = projects.filter(p => 
+    p.tags.some(tag => ['Python', 'TensorFlow', 'ML', 'NLP'].includes(tag))
+  );
+
+  const getActiveProjects = () => {
+    switch (activeTab) {
+      case 'featured': return featuredProjects;
+      case 'web': return webProjects;
+      case 'ml': return mlProjects;
+      case 'all': return projects;
+      default: return featuredProjects;
+    }
+  };
+
+  const tabs = [
+    { id: 'featured', label: 'Featured', count: featuredProjects.length },
+    { id: 'all', label: 'All Projects', count: projects.length },
+    { id: 'web', label: 'Web Dev', count: webProjects.length },
+    { id: 'ml', label: 'ML & AI', count: mlProjects.length },
+  ] as const;
 
   return (
     <section id="projects" className="py-20 px-4">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-gradient-secondary mb-4">Featured Projects</h2>
+          <h2 className="text-gradient-secondary mb-4">My Projects</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             A showcase of my recent work, from data-driven applications to modern web solutions
           </p>
         </div>
 
-        {/* Featured Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {featuredProjects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
+        {/* Project Tabs */}
+        <div className="flex flex-wrap justify-center gap-2 mb-12">
+          {tabs.map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id)}
+              className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 backdrop-blur-sm border ${
+                activeTab === tab.id
+                  ? 'bg-gradient-primary text-white border-white/30 shadow-lg scale-105'
+                  : 'bg-white/5 text-muted-foreground border-white/10 hover:bg-white/10 hover:border-white/20 hover:text-white'
+              }`}
+            >
+              {tab.label}
+              <span className={`ml-2 px-2 py-1 rounded-full text-xs ${
+                activeTab === tab.id ? 'bg-white/20' : 'bg-white/10'
+              }`}>
+                {tab.count}
+              </span>
+            </button>
           ))}
         </div>
 
-        {/* Other Projects */}
-        <div className="space-y-8">
-          <h3 className="text-2xl font-bold text-center">More Projects</h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {otherProjects.map((project) => (
-              <ProjectCard key={project.id} project={project} />
-            ))}
-          </div>
+        {/* Projects Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          {getActiveProjects().map((project, index) => (
+            <div
+              key={project.id}
+              style={{
+                animationDelay: `${index * 0.1}s`,
+                animation: 'fadeIn 0.6s ease-out forwards'
+              }}
+            >
+              <ProjectCard project={project} />
+            </div>
+          ))}
         </div>
 
         {/* View More Button */}
