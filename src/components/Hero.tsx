@@ -64,43 +64,80 @@ export const Hero = () => {
       <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
         <div className="space-y-8">
           {/* Main Heading */}
-          <div className="space-y-4">
-            <h1 className="font-bold leading-tight">
-              <span className="block text-gradient-primary">Your Name</span>
-            </h1>
+          <div className="space-y-6">
+            <div className="relative">
+              <h1 className="font-bold leading-tight text-left">
+                <span className="block">Hey, I'm</span>
+                <span className="block text-gradient-primary text-6xl md:text-8xl lg:text-9xl transform -rotate-1">
+                  Alex Chen
+                </span>
+              </h1>
+              {/* Quirky annotation */}
+              <div className="absolute -right-4 top-4 rotate-12 text-sm text-yellow-400 font-handwriting hidden md:block">
+                <div className="relative">
+                  <span>← that's me!</span>
+                  <svg className="absolute -top-2 -left-2 w-8 h-8 text-yellow-400/60" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
             
             {/* Animated Tagline */}
-            <div className="text-xl md:text-2xl lg:text-3xl font-medium text-muted-foreground">
-              <span className="inline-block animate-pulse">Data Science</span>
-              <span className="mx-4 text-gradient-secondary">•</span>
-              <span className="inline-block animate-pulse" style={{ animationDelay: '1s' }}>
-                Full-Stack Developer
-              </span>
+            <div className="text-left space-y-2">
+              <div className="text-lg md:text-xl text-muted-foreground">
+                I build things that matter
+              </div>
+              <div className="flex flex-wrap gap-2 text-sm">
+                <span className="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full">Full-Stack Dev</span>
+                <span className="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full">Data Enthusiast</span>
+                <span className="px-3 py-1 bg-green-500/20 text-green-300 rounded-full">Coffee Addict ☕</span>
+              </div>
             </div>
           </div>
 
           {/* Description */}
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Crafting intelligent solutions through data science and modern web development. 
-            Turning complex problems into elegant, scalable applications.
-          </p>
+          <div className="text-left max-w-2xl space-y-4">
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              Currently crafting digital experiences at <span className="text-gradient-secondary font-semibold">TechCorp</span> 
+              and turning coffee into code since 2020. I love building things that solve real problems 
+              (and occasionally break in spectacular ways 🚀).
+            </p>
+            <p className="text-base text-muted-foreground/80">
+              When I'm not debugging CSS or training models, you'll find me hiking trails around San Francisco 
+              or trying to convince my cat that my keyboard isn't a bed.
+            </p>
+          </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
-            <Button className="btn-neon-primary group">
+          <div className="flex flex-col sm:flex-row gap-4 justify-start items-start pt-8">
+            <Button className="btn-neon-primary group relative">
               <Download className="w-5 h-5 mr-2 group-hover:animate-bounce" />
-              Download Resume
+              Grab my Resume
+              <span className="absolute -top-2 -right-2 w-3 h-3 bg-red-500 rounded-full animate-pulse"></span>
             </Button>
             
-            <Button className="btn-ghost-glow group">
+            <Button className="btn-ghost-glow group" onClick={() => window.open('https://github.com/alexchen', '_blank')}>
               <Github className="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform" />
-              GitHub
+              My Code
             </Button>
             
-            <Button className="btn-ghost-glow group">
+            <Button className="btn-ghost-glow group" onClick={() => window.open('https://linkedin.com/in/alexchen-dev', '_blank')}>
               <Linkedin className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
-              LinkedIn
+              Let's Connect
             </Button>
+          </div>
+          
+          {/* Fun Stats */}
+          <div className="flex flex-wrap gap-6 justify-start pt-6 text-sm text-muted-foreground">
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+              <span>Currently available for new opportunities</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span>☕</span>
+              <span>1,247 cups of coffee consumed this year</span>
+            </div>
           </div>
         </div>
 

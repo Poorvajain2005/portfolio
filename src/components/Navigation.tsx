@@ -68,9 +68,12 @@ export const Navigation = () => {
           {/* Logo */}
           <button
             onClick={() => scrollToSection('hero')}
-            className="text-xl font-bold text-gradient-primary hover:scale-105 transition-transform duration-300"
+            className="text-xl font-bold text-gradient-primary hover:scale-105 transition-transform duration-300 relative group"
           >
-            Your Name
+            alex.chen()
+            <span className="absolute -top-1 -right-6 text-xs text-yellow-400 opacity-0 group-hover:opacity-100 transition-opacity">
+              &lt;dev/&gt;
+            </span>
           </button>
 
           {/* Desktop Navigation */}

@@ -21,6 +21,7 @@ export default {
 			fontFamily: {
 				inter: ['Inter', 'sans-serif'],
 				mono: ['JetBrains Mono', 'monospace'],
+				handwriting: ['Comic Sans MS', 'cursive'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',

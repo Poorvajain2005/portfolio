@@ -10,28 +10,28 @@ export const Footer = () => {
         <div className="text-center space-y-6">
           {/* Name/Brand */}
           <div className="space-y-2">
-            <h3 className="text-2xl font-bold text-gradient-primary">Your Name</h3>
+            <h3 className="text-2xl font-bold text-gradient-primary">Alex Chen</h3>
             <p className="text-muted-foreground">
-              Full-Stack Developer & Data Scientist
+              Turning caffeine into code since 2020 ☕→💻
             </p>
           </div>
 
-          {/* Tech Stack Attribution */}
-          <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
-            <span>Built with</span>
-            <Heart className="w-4 h-4 text-red-400 animate-pulse" />
-            <span>using</span>
-            <div className="flex items-center gap-1">
-              <Code2 className="w-4 h-4" />
-              <span className="font-semibold">React</span>
+          {/* Fun Footer Note */}
+          <div className="space-y-3">
+            <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
+              <span>Handcrafted with</span>
+              <Heart className="w-4 h-4 text-red-400 animate-pulse" />
+              <span>and way too much</span>
+              <span className="text-yellow-400">☕</span>
             </div>
-            <span>•</span>
-            <div className="flex items-center gap-1">
-              <Zap className="w-4 h-4" />
-              <span className="font-semibold">Vite</span>
+            
+            <div className="text-xs text-muted-foreground/70">
+              Built with React, Vite, TailwindCSS • Deployed at 3:42 AM (as usual)
             </div>
-            <span>•</span>
-            <span className="font-semibold">TailwindCSS</span>
+            
+            <div className="text-xs text-muted-foreground/60 italic">
+              "It works on my machine" - Alex, probably
+            </div>
           </div>
 
           {/* Separator */}
@@ -40,7 +40,7 @@ export const Footer = () => {
           {/* Copyright */}
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
             <div>
-              © {currentYear} Your Name. All rights reserved.
+              © {currentYear} Alex Chen. Made with questionable design choices.
             </div>
             
             <div className="flex items-center gap-6">
@@ -48,14 +48,17 @@ export const Footer = () => {
                 href="#" 
                 className="hover:text-gradient-primary transition-colors duration-300"
               >
-                Privacy Policy
+                Privacy (lol)
               </a>
               <a 
                 href="#" 
                 className="hover:text-gradient-primary transition-colors duration-300"
               >
-                Terms of Service
+                Terms (YOLO)
               </a>
+              <span className="text-xs opacity-50">
+                No cookies harmed 🍪
+              </span>
             </div>
           </div>
 

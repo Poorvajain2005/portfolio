@@ -8,69 +8,81 @@ import mlImg from "@/assets/project-ml.jpg";
 const projects = [
   {
     id: 1,
-    title: "Analytics Dashboard",
-    description: "A comprehensive data visualization platform built with React and D3.js, featuring real-time analytics, interactive charts, and advanced filtering capabilities.",
+    title: "PetPals - Dog Walker Finder 🐕",
+    description: "Built this after my neighbor asked me to walk their dog and I realized there's no good app for this. Features real-time GPS tracking, doggy photo updates, and emergency vet contacts. Currently used by 500+ pet owners in SF!",
     image: dashboardImg,
-    tags: ["React", "TypeScript", "D3.js", "Node.js", "PostgreSQL"],
-    github: "https://github.com",
-    demo: "https://demo.com",
-    featured: true
+    tags: ["React Native", "Node.js", "Socket.io", "MongoDB", "Stripe"],
+    github: "https://github.com/alexchen/petpals",
+    demo: "https://petpals-sf.com",
+    featured: true,
+    status: "🟢 Live & Growing",
+    impact: "500+ active users"
   },
   {
     id: 2,
-    title: "E-Commerce Platform",
-    description: "Full-stack e-commerce solution with modern design, payment integration, inventory management, and advanced search functionality.",
+    title: "CoffeeQueue - Skip the Line ☕",
+    description: "My solution to waiting 20 minutes for coffee at my local café. Pre-order, pay, and pickup without the awkward small talk. The owner says it increased their revenue by 30% (and saved my sanity).",
     image: ecommerceImg,
     tags: ["Next.js", "Stripe", "Prisma", "TailwindCSS", "Vercel"],
-    github: "https://github.com",
-    demo: "https://demo.com",
-    featured: true
+    github: "https://github.com/alexchen/coffeequeue",
+    demo: "https://coffeequeue.app",
+    featured: true,
+    status: "☕ Caffeinating SF",
+    impact: "12 cafés onboarded"
   },
   {
     id: 3,
-    title: "ML Prediction Engine",
-    description: "Machine learning application for predictive analytics with interactive visualizations, model comparison, and real-time predictions.",
+    title: "PlantDoc - AI Plant Disease Detector 🌱",
+    description: "Trained a CNN to diagnose plant diseases from photos because I kept killing my houseplants. Turns out, I'm not the only one with a black thumb. Won 2nd place at SF Hackathon 2023!",
     image: mlImg,
     tags: ["Python", "TensorFlow", "FastAPI", "React", "Docker"],
-    github: "https://github.com",
-    demo: "https://demo.com",
-    featured: true
+    github: "https://github.com/alexchen/plantdoc",
+    demo: "https://plantdoc.ai",
+    featured: true,
+    status: "🏆 Award Winner",
+    impact: "94% accuracy rate"
   },
   {
     id: 4,
-    title: "Task Management App",
-    description: "Collaborative project management tool with real-time updates, team collaboration features, and advanced project tracking.",
+    title: "FocusMode - Distraction Killer",
+    description: "Chrome extension that blocks social media and shows motivational quotes instead. Built during finals week when I couldn't stop checking Instagram. Now has 10K+ users who actually get stuff done.",
     image: dashboardImg,
-    tags: ["Vue.js", "Firebase", "Vuex", "Socket.io", "CSS3"],
-    github: "https://github.com",
-    demo: "https://demo.com",
-    featured: false
+    tags: ["JavaScript", "Chrome API", "CSS3", "Firebase"],
+    github: "https://github.com/alexchen/focusmode",
+    demo: "https://chrome.google.com/webstore/focusmode",
+    featured: false,
+    status: "🚀 10K+ Downloads",
+    impact: "4.8★ rating"
   },
   {
     id: 5,
-    title: "Weather Forecast API",
-    description: "RESTful API service providing accurate weather predictions with data aggregation from multiple sources and caching.",
+    title: "WeatherMood API",
+    description: "Combines weather data with Spotify API to suggest playlists based on the weather. Because nobody wants upbeat music when it's raining. Used by 3 music apps and counting.",
     image: mlImg,
-    tags: ["Node.js", "Express", "Redis", "MongoDB", "AWS"],
-    github: "https://github.com",
-    demo: "https://demo.com",
-    featured: false
+    tags: ["Node.js", "Express", "Redis", "OpenWeather", "Spotify API"],
+    github: "https://github.com/alexchen/weathermood",
+    demo: "https://api.weathermood.io",
+    featured: false,
+    status: "🎵 API Live",
+    impact: "1M+ API calls/month"
   },
   {
     id: 6,
-    title: "Social Media Analytics",
-    description: "Social media monitoring and analytics platform with sentiment analysis, trend detection, and comprehensive reporting.",
+    title: "LocalBuzz - Neighborhood Social",
+    description: "Hyperlocal social network for my apartment building that turned into a citywide phenomenon. Features lost pet alerts, local events, and that one neighbor who always needs to borrow sugar.",
     image: ecommerceImg,
-    tags: ["Python", "NLP", "React", "MongoDB", "Heroku"],
-    github: "https://github.com",
-    demo: "https://demo.com",
-    featured: false
+    tags: ["Vue.js", "Firebase", "Geolocation", "PWA"],
+    github: "https://github.com/alexchen/localbuzz",
+    demo: "https://localbuzz.community",
+    featured: false,
+    status: "🏘️ 50+ Buildings",
+    impact: "Community building"
   }
 ];
 
 const ProjectCard = ({ project }: { project: typeof projects[0] }) => {
   return (
-    <div className={`project-card group ${project.featured ? 'lg:col-span-1' : ''}`}>
+    <div className={`project-card group ${project.featured ? 'lg:col-span-1' : ''} ${project.featured ? 'transform rotate-1 hover:rotate-0' : 'hover:rotate-1'} transition-transform duration-300`}>
       {/* Image Section */}
       <div className="relative overflow-hidden">
         <img
@@ -95,28 +107,35 @@ const ProjectCard = ({ project }: { project: typeof projects[0] }) => {
             onClick={() => window.open(project.demo, '_blank')}
           >
             <ExternalLink className="w-4 h-4 mr-2" />
-            Demo
+            Live Demo
           </Button>
+        </div>
+
+        {/* Status Badge */}
+        <div className="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-medium bg-black/50 backdrop-blur-sm text-white border border-white/20">
+          {project.status}
         </div>
 
         {/* Featured Badge */}
         {project.featured && (
-          <div className="absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-medium bg-gradient-primary text-white">
-            Featured
+          <div className="absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-medium bg-gradient-primary text-white transform -rotate-12">
+            ⭐ Featured
           </div>
         )}
       </div>
 
       {/* Content Section */}
       <div className="p-6 space-y-4">
-        <div className="flex items-center gap-2">
-          <Code2 className="w-5 h-5 text-gradient-primary" />
+        <div className="space-y-2">
           <h3 className="text-xl font-bold group-hover:text-gradient-primary transition-all duration-300">
             {project.title}
           </h3>
+          <div className="text-sm text-gradient-secondary font-medium">
+            {project.impact}
+          </div>
         </div>
 
-        <p className="text-muted-foreground leading-relaxed">
+        <p className="text-muted-foreground leading-relaxed text-sm">
           {project.description}
         </p>
 
@@ -167,11 +186,21 @@ export const Projects = () => {
   return (
     <section id="projects" className="py-20 px-4">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-gradient-secondary mb-4">My Projects</h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            A showcase of my recent work, from data-driven applications to modern web solutions
-          </p>
+        <div className="text-left mb-16">
+          <div className="max-w-4xl">
+            <h2 className="text-gradient-secondary mb-4 transform -rotate-1">
+              Stuff I've Built (That Actually Works)
+            </h2>
+            <p className="text-xl text-muted-foreground">
+              From "wouldn't it be cool if..." to production apps that real people use every day. 
+              Here's what happens when I get bored and have too much coffee ☕
+            </p>
+            <div className="mt-4 p-4 bg-blue-500/10 border border-blue-500/20 rounded-lg transform rotate-1">
+              <p className="text-blue-200 text-sm">
+                <strong>Pro tip:</strong> Click the demos – they're all live and ready to break... I mean, explore! 🚀
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* Project Tabs */}
