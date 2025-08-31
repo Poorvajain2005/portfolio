@@ -3,48 +3,15 @@ import { GraduationCap, Calendar, Award, MapPin } from "lucide-react";
 const education = [
   {
     id: 1,
-    degree: "Master of Science in Computer Science",
-    institution: "Stanford University",
-    location: "Stanford, CA",
-    period: "2021 - 2023",
-    gpa: "3.9/4.0",
+    degree: "B.Tech – CSE (Data Science)",
+    institution: "Amity University",
+    location: "Gwalior, India",
+    period: "2023 – 2027",
+    gpa: "",
     highlights: [
-      "Specialization in Machine Learning and Data Science",
-      "Research in Deep Learning for Computer Vision",
-      "Teaching Assistant for CS229 (Machine Learning)",
-      "Published 2 papers in top-tier conferences"
+      "Key Coursework: Data Structures, DBMS, Machine Learning, OS, Software Engineering"
     ],
-    current: false
-  },
-  {
-    id: 2,
-    degree: "Bachelor of Science in Computer Engineering",
-    institution: "University of California, Berkeley",
-    location: "Berkeley, CA",
-    period: "2017 - 2021",
-    gpa: "3.8/4.0",
-    highlights: [
-      "Magna Cum Laude graduate",
-      "President of Computer Science Society",
-      "Dean's Honor List for 6 semesters",
-      "Capstone project on IoT smart city solutions"
-    ],
-    current: false
-  },
-  {
-    id: 3,
-    degree: "Professional Certificate in Data Science",
-    institution: "Harvard Extension School",
-    location: "Cambridge, MA",
-    period: "2020 - 2021",
-    gpa: "A average",
-    highlights: [
-      "Comprehensive data analysis and visualization",
-      "Statistical modeling and machine learning",
-      "Big data processing with Hadoop and Spark",
-      "Final project: Predictive analytics for healthcare"
-    ],
-    current: false
+    current: true
   }
 ];
 
@@ -111,9 +78,9 @@ const EducationCard = ({ edu, isLast }: { edu: typeof education[0]; isLast: bool
 };
 
 export const Education = () => {
-  return (
-    <section id="education" className="py-20 px-4">
-      <div className="max-w-4xl mx-auto">
+return (
+    <section id="education" className="py-20 px-4 w-full">
+      <div className="max-w-full mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-gradient-accent mb-4">Education</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">

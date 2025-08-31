@@ -4,82 +4,56 @@ import { Code2, Database, Cloud, Brain, Palette, Settings } from 'lucide-react';
 const skillCategories = {
   frontend: {
     icon: Code2,
-    label: 'Frontend',
-    color: 'text-blue-400',
+    label: "Frontend",
+    color: "text-blue-400",
     skills: [
-      { name: 'React', level: 95, experience: '4 years' },
-      { name: 'Next.js', level: 90, experience: '3 years' },
-      { name: 'TypeScript', level: 88, experience: '3 years' },
-      { name: 'TailwindCSS', level: 92, experience: '3 years' },
-      { name: 'Vue.js', level: 75, experience: '2 years' },
-      { name: 'JavaScript', level: 95, experience: '5 years' },
-    ]
+      { name: "React.js", level: 90, experience: "2 years" },
+      { name: "Tailwind", level: 85, experience: "2 years" },
+      { name: "JavaScript", level: 90, experience: "3 years" },
+      { name: "TypeScript", level: 80, experience: "2 years" },
+    ],
   },
   backend: {
     icon: Database,
-    label: 'Backend',
-    color: 'text-green-400',
+    label: "Backend",
+    color: "text-green-400",
     skills: [
-      { name: 'Node.js', level: 85, experience: '3 years' },
-      { name: 'Python', level: 92, experience: '4 years' },
-      { name: 'PostgreSQL', level: 80, experience: '3 years' },
-      { name: 'MongoDB', level: 75, experience: '2 years' },
-      { name: 'Express.js', level: 82, experience: '3 years' },
-      { name: 'FastAPI', level: 78, experience: '2 years' },
-    ]
+      { name: "Node.js", level: 85, experience: "2 years" },
+
+      { name: "Python", level: 85, experience: "2 years" },
+      { name: "MongoDB", level: 75, experience: "2 years" },
+      { name: "Firebase", level: 70, experience: "1 year" },
+    ],
   },
   cloud: {
     icon: Cloud,
-    label: 'Cloud & DevOps',
-    color: 'text-purple-400',
+    label: "Cloud & DevOps",
+    color: "text-purple-400",
     skills: [
-      { name: 'AWS', level: 85, experience: '3 years' },
-      { name: 'Docker', level: 80, experience: '2 years' },
-      { name: 'Kubernetes', level: 70, experience: '1 year' },
-      { name: 'Vercel', level: 90, experience: '3 years' },
-      { name: 'GitHub Actions', level: 75, experience: '2 years' },
-      { name: 'Terraform', level: 65, experience: '1 year' },
-    ]
+      { name: "AWS", level: 60, experience: "1 year" },
+      { name: "Docker", level: 75, experience: "1 year" },
+
+      { name: "Postman", level: 75, experience: "2 years" },
+    ],
   },
   ml: {
     icon: Brain,
-    label: 'ML & AI',
-    color: 'text-pink-400',
+    label: "ML & AI",
+    color: "text-pink-400",
     skills: [
-      { name: 'TensorFlow', level: 85, experience: '3 years' },
-      { name: 'Scikit-learn', level: 90, experience: '4 years' },
-      { name: 'Pandas', level: 95, experience: '4 years' },
-      { name: 'NumPy', level: 92, experience: '4 years' },
-      { name: 'PyTorch', level: 75, experience: '2 years' },
-      { name: 'Jupyter', level: 88, experience: '4 years' },
-    ]
-  },
-  design: {
-    icon: Palette,
-    label: 'Design & Tools',
-    color: 'text-orange-400',
-    skills: [
-      { name: 'Figma', level: 80, experience: '3 years' },
-      { name: 'Adobe XD', level: 70, experience: '2 years' },
-      { name: 'Photoshop', level: 75, experience: '3 years' },
-      { name: 'Framer Motion', level: 85, experience: '2 years' },
-      { name: 'Three.js', level: 65, experience: '1 year' },
-      { name: 'Blender', level: 60, experience: '1 year' },
-    ]
+      { name: "Scikit-learn", level: 70, experience: "1 year" },
+      { name: "AI/ML", level: 80, experience: "1 year" },
+    ],
   },
   tools: {
     icon: Settings,
-    label: 'Tools & Others',
-    color: 'text-cyan-400',
+    label: "Tools & Others",
+    color: "text-cyan-400",
     skills: [
-      { name: 'Git', level: 90, experience: '5 years' },
-      { name: 'VS Code', level: 95, experience: '5 years' },
-      { name: 'Postman', level: 85, experience: '3 years' },
-      { name: 'Notion', level: 80, experience: '2 years' },
-      { name: 'Slack', level: 90, experience: '4 years' },
-      { name: 'Linear', level: 75, experience: '1 year' },
-    ]
-  }
+      { name: "Git", level: 80, experience: "3 years" },
+      { name: "JWT", level: 40, experience: "1 year" },
+    ],
+  },
 };
 
 type SkillCategory = keyof typeof skillCategories;

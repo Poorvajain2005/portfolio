@@ -9,39 +9,47 @@ const contactInfo = [
   {
     icon: Mail,
     label: "Email",
-    value: "hello@yourname.com",
-    link: "mailto:hello@yourname.com",
-    color: "text-blue-400"
+    value: "jainpoorva535@gmail.com",
+    link: "<mailto:jainpoorva535>",
+    color: "text-blue-400",
   },
   {
     icon: Github,
     label: "GitHub",
-    value: "@yourusername",
-    link: "https://github.com/yourusername",
-    color: "text-purple-400"
+    value: "@Poorvajain2005",
+    link: "https://github.com/Poorvajain2005",
+    color: "text-purple-400",
   },
   {
     icon: Linkedin,
     label: "LinkedIn",
-    value: "/in/yourname",
-    link: "https://linkedin.com/in/yourname",
-    color: "text-blue-500"
+    value: "/in/poorva-jain-92867a2b5",
+    link: "https://linkedin.com/in/poorva-jain-92867a2b5",
+    color: "text-blue-500",
   },
   {
     icon: MapPin,
     label: "Location",
-    value: "San Francisco, CA",
+    value: "Madhya Pradesh, INDIA",
     link: null,
-    color: "text-green-400"
-  }
+    color: "text-green-400",
+  },
 ];
 
-const FloatingIcon = ({ Icon, className, delay }: { Icon: any; className?: string; delay: number }) => (
-  <div 
+const FloatingIcon = ({
+  Icon,
+  className,
+  delay,
+}: {
+  Icon: any;
+  className?: string;
+  delay: number;
+}) => (
+  <div
     className={`absolute p-3 rounded-full backdrop-blur-sm bg-white/10 ${className}`}
     style={{
       animation: `floating 6s ease-in-out infinite`,
-      animationDelay: `${delay}s`
+      animationDelay: `${delay}s`,
     }}
   >
     <Icon className="w-5 h-5 text-white/60" />
@@ -50,10 +58,10 @@ const FloatingIcon = ({ Icon, className, delay }: { Icon: any; className?: strin
 
 export const Contact = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
+    name: "POORVA JAIN",
+    email: "jainpoorva535@gmail.com",
+    subject: "",
+    message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
@@ -63,21 +71,23 @@ export const Contact = () => {
     setIsSubmitting(true);
 
     // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    await new Promise((resolve) => setTimeout(resolve, 1000));
 
     toast({
       title: "Message sent successfully!",
       description: "Thank you for reaching out. I'll get back to you soon.",
     });
 
-    setFormData({ name: '', email: '', subject: '', message: '' });
+    setFormData({ name: "", email: "", subject: "", message: "" });
     setIsSubmitting(false);
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData(prev => ({
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData((prev) => ({
       ...prev,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     }));
   };
 
@@ -87,13 +97,18 @@ export const Contact = () => {
       <FloatingIcon Icon={Mail} className="-top-8 -left-8" delay={0} />
       <FloatingIcon Icon={Github} className="top-1/4 -right-12" delay={2} />
       <FloatingIcon Icon={Linkedin} className="-bottom-8 left-1/4" delay={4} />
-      <FloatingIcon Icon={MessageCircle} className="bottom-1/4 -right-8" delay={1} />
+      <FloatingIcon
+        Icon={MessageCircle}
+        className="bottom-1/4 -right-8"
+        delay={1}
+      />
 
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-gradient-primary mb-4">Get In Touch</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Let's collaborate on your next project or discuss exciting opportunities
+            Let's collaborate on your next project or discuss exciting
+            opportunities
           </p>
         </div>
 
@@ -102,13 +117,14 @@ export const Contact = () => {
           <div className="space-y-8">
             <div className="space-y-6">
               <h3 className="text-2xl font-bold">
-                Let's start a <span className="text-gradient-secondary">conversation</span>
+                Let's start a{" "}
+                <span className="text-gradient-secondary">conversation</span>
               </h3>
-              
+
               <p className="text-lg text-muted-foreground leading-relaxed">
-                I'm always excited to work on innovative projects and collaborate with 
-                talented teams. Whether you have a project in mind or just want to connect, 
-                I'd love to hear from you.
+                I'm always excited to work on innovative projects and
+                collaborate with talented teams. Whether you have a project in
+                mind or just want to connect, I'd love to hear from you.
               </p>
 
               <div className="space-y-4">
@@ -118,17 +134,27 @@ export const Contact = () => {
                     className="flex items-center gap-4 p-4 glass-card hover:scale-105 transition-transform duration-300 group"
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
-                    <div className={`p-3 rounded-xl bg-gradient-primary/20 group-hover:scale-110 transition-transform duration-300`}>
+                    <div
+                      className={`p-3 rounded-xl bg-gradient-primary/20 group-hover:scale-110 transition-transform duration-300`}
+                    >
                       <info.icon className={`w-5 h-5 ${info.color}`} />
                     </div>
                     <div className="flex-1">
-                      <div className="text-sm text-muted-foreground">{info.label}</div>
+                      <div className="text-sm text-muted-foreground">
+                        {info.label}
+                      </div>
                       {info.link ? (
-                        <a 
+                        <a
                           href={info.link}
                           className="font-medium hover:text-gradient-primary transition-colors duration-300"
-                          target={info.link.startsWith('http') ? '_blank' : undefined}
-                          rel={info.link.startsWith('http') ? 'noopener noreferrer' : undefined}
+                          target={
+                            info.link.startsWith("http") ? "_blank" : undefined
+                          }
+                          rel={
+                            info.link.startsWith("http")
+                              ? "noopener noreferrer"
+                              : undefined
+                          }
                         >
                           {info.value}
                         </a>
@@ -145,16 +171,21 @@ export const Contact = () => {
             <div className="space-y-4">
               <h4 className="text-lg font-semibold">Quick Connect</h4>
               <div className="flex gap-4">
-                <Button 
+                <Button
                   className="btn-neon-primary flex-1"
-                  onClick={() => window.open('mailto:hello@yourname.com')}
+                  onClick={() => window.open("mailto:poorvajain2005@gmail.com")}
                 >
                   <Mail className="w-4 h-4 mr-2" />
                   Email Me
                 </Button>
-                <Button 
+                <Button
                   className="btn-ghost-glow flex-1"
-                  onClick={() => window.open('https://linkedin.com/in/yourname', '_blank')}
+                  onClick={() =>
+                    window.open(
+                      "https://linkedin.com/in/poorva-jain-92867a2b5",
+                      "_blank"
+                    )
+                  }
                 >
                   <Linkedin className="w-4 h-4 mr-2" />
                   LinkedIn
@@ -181,7 +212,7 @@ export const Contact = () => {
                     placeholder="Your name"
                   />
                 </div>
-                
+
                 <div className="space-y-2">
                   <label htmlFor="email" className="text-sm font-medium">
                     Email *
@@ -194,7 +225,7 @@ export const Contact = () => {
                     onChange={handleChange}
                     required
                     className="backdrop-blur-sm bg-white/5 border-white/20 focus:border-white/40 focus:ring-2 focus:ring-blue-500/20"
-                    placeholder="your.email@example.com"
+                    placeholder="jainpoorva535@gmail.com"
                   />
                 </div>
               </div>

@@ -56,21 +56,21 @@ export const Navigation = () => {
   };
 
   return (
-    <nav 
+    <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled 
-          ? 'backdrop-blur-xl bg-black/20 border-b border-white/10 shadow-lg' 
-          : 'bg-transparent'
+        isScrolled
+          ? "backdrop-blur-xl bg-black/20 border-b border-white/10 shadow-lg"
+          : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <button
-            onClick={() => scrollToSection('hero')}
+            onClick={() => scrollToSection("hero")}
             className="text-xl font-bold text-gradient-primary hover:scale-105 transition-transform duration-300 relative group"
           >
-            alex.chen()
+            Poorva Jain
             <span className="absolute -top-1 -right-6 text-xs text-yellow-400 opacity-0 group-hover:opacity-100 transition-opacity">
               &lt;dev/&gt;
             </span>
@@ -84,8 +84,8 @@ export const Navigation = () => {
                 onClick={() => scrollToSection(item.id)}
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
                   activeSection === item.id
-                    ? 'bg-white/10 text-gradient-primary backdrop-blur-sm border border-white/20'
-                    : 'text-muted-foreground hover:text-white hover:bg-white/5'
+                    ? "bg-white/10 text-gradient-primary backdrop-blur-sm border border-white/20"
+                    : "text-muted-foreground hover:text-white hover:bg-white/5"
                 }`}
               >
                 {item.label}
@@ -98,20 +98,28 @@ export const Navigation = () => {
             <Button
               size="sm"
               className="btn-ghost-glow"
-              onClick={() => window.open('https://github.com', '_blank')}
+              onClick={() => window.open("https://github.com/Poorvajain2005", "_blank")}
             >
               <Github className="w-4 h-4" />
             </Button>
             <Button
               size="sm"
               className="btn-ghost-glow"
-              onClick={() => window.open('https://linkedin.com', '_blank')}
+              onClick={() => window.open("https://linkedin.com/in/poorva-jain-92867a2b5", "_blank")}
             >
               <Linkedin className="w-4 h-4" />
             </Button>
             <Button
               size="sm"
               className="btn-neon-primary"
+              onClick={() => {
+                const link = document.createElement('a');
+                link.href = '/POORVA JAIN resume.pdf';
+                link.download = 'POORVA JAIN resume.pdf';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+              }}
             >
               <Download className="w-4 h-4 mr-2" />
               Resume
@@ -137,31 +145,41 @@ export const Navigation = () => {
                   onClick={() => scrollToSection(item.id)}
                   className={`block w-full text-left px-4 py-3 rounded-lg text-sm font-medium transition-all duration-300 ${
                     activeSection === item.id
-                      ? 'bg-white/10 text-gradient-primary backdrop-blur-sm border border-white/20'
-                      : 'text-muted-foreground hover:text-white hover:bg-white/5'
+                      ? "bg-white/10 text-gradient-primary backdrop-blur-sm border border-white/20"
+                      : "text-muted-foreground hover:text-white hover:bg-white/5"
                   }`}
                 >
                   {item.label}
                 </button>
               ))}
-              
+
               {/* Mobile Actions */}
               <div className="pt-4 border-t border-white/10 space-y-3">
                 <Button
                   className="w-full btn-ghost-glow"
-                  onClick={() => window.open('https://github.com', '_blank')}
+                  onClick={() => window.open("https://github.com/Poorvajain2005", "_blank")}
                 >
                   <Github className="w-4 h-4 mr-2" />
                   GitHub
                 </Button>
                 <Button
                   className="w-full btn-ghost-glow"
-                  onClick={() => window.open('https://linkedin.com', '_blank')}
+                  onClick={() => window.open("https://linkedin.com/in/poorva-jain-92867a2b5", "_blank")}
                 >
                   <Linkedin className="w-4 h-4 mr-2" />
                   LinkedIn
                 </Button>
-                <Button className="w-full btn-neon-primary">
+                <Button
+                  className="w-full btn-neon-primary"
+                  onClick={() => {
+                    const link = document.createElement('a');
+                    link.href = '/POORVA JAIN resume.pdf';
+                    link.download = 'POORVA JAIN resume.pdf';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                  }}
+                >
                   <Download className="w-4 h-4 mr-2" />
                   Download Resume
                 </Button>
