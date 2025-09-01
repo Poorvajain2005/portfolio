@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import emailjs from '@emailjs/browser';
 
 const contactInfo = [
   {
@@ -58,8 +59,8 @@ const FloatingIcon = ({
 
 export const Contact = () => {
   const [formData, setFormData] = useState({
-    name: "POORVA JAIN",
-    email: "jainpoorva535@gmail.com",
+    name: "",
+    email: "",
     subject: "",
     message: "",
   });
@@ -70,16 +71,69 @@ export const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    try {
+      // EmailJS configuration
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
-    toast({
-      title: "Message sent successfully!",
-      description: "Thank you for reaching out. I'll get back to you soon.",
-    });
+      console.log('Environment variables:', {
+        serviceId: serviceId ? 'SET' : 'NOT SET',
+        templateId: templateId ? 'SET' : 'NOT SET',
+        publicKey: publicKey ? 'SET' : 'NOT SET'
+      });
 
-    setFormData({ name: "", email: "", subject: "", message: "" });
-    setIsSubmitting(false);
+      // Check if EmailJS is properly configured
+      if (!serviceId || !templateId || !publicKey ||
+          serviceId === 'your_service_id_here' ||
+          templateId === 'your_template_id_here' ||
+          publicKey === 'your_public_key_here') {
+        console.error('EmailJS configuration missing or using placeholder values');
+        throw new Error('EmailJS not configured. Please set up your EmailJS credentials in the .env file.');
+      }
+
+      console.log('Sending email with params:', {
+        serviceId,
+        templateId,
+        publicKey: publicKey.substring(0, 10) + '...', // Don't log full key
+        templateParams: {
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message.substring(0, 50) + '...',
+          to_name: 'Poorva Jain',
+        }
+      });
+
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+        to_name: 'Poorva Jain',
+      };
+
+      const result = await emailjs.send(serviceId, templateId, templateParams, publicKey);
+      console.log('EmailJS result:', result);
+
+      toast({
+        title: "Message sent successfully!",
+        description: "Thank you for reaching out. I'll get back to you soon.",
+      });
+
+      setFormData({ name: "", email: "", subject: "", message: "" });
+    } catch (error) {
+      console.error('EmailJS error:', error);
+      const errorMessage = error instanceof Error ? error.message : "Please try again later or contact me directly via email.";
+
+      toast({
+        title: "Failed to send message",
+        description: errorMessage,
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (

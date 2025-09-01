@@ -32,9 +32,51 @@ cd <YOUR_PROJECT_NAME>
 # Step 3: Install the necessary dependencies.
 npm i
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Step 4: Set up environment variables for EmailJS (contact form)
+cp .env.example .env
+# Edit .env with your EmailJS credentials
+
+# Step 5: Start the development server with auto-reloading and an instant preview.
 npm run dev
 ```
+
+## Setting up EmailJS for Contact Form
+
+To enable the contact form functionality:
+
+1. **Create an EmailJS account** at [https://www.emailjs.com/](https://www.emailjs.com/)
+
+2. **Set up your email service:**
+   - Go to Email Services in your EmailJS dashboard
+   - Add your email provider (Gmail, Outlook, etc.)
+   - Note down the Service ID
+
+3. **Create an email template:**
+   - Go to Email Templates
+   - Create a new template with these variables:
+     - `{{from_name}}` - Sender's name
+     - `{{from_email}}` - Sender's email
+     - `{{subject}}` - Email subject
+     - `{{message}}` - Email message
+     - `{{to_name}}` - Your name
+   - Note down the Template ID
+
+4. **Get your Public Key:**
+   - Go to Account → General
+   - Copy your Public Key
+
+5. **Configure environment variables:**
+   ```bash
+   cp .env.example .env
+   ```
+   Then edit `.env` with your actual values:
+   ```
+   VITE_EMAILJS_SERVICE_ID=your_service_id_here
+   VITE_EMAILJS_TEMPLATE_ID=your_template_id_here
+   VITE_EMAILJS_PUBLIC_KEY=your_public_key_here
+   ```
+
+6. **Restart your development server** after setting up the environment variables.
 
 **Edit a file directly in GitHub**
 
@@ -59,6 +101,7 @@ This project is built with:
 - React
 - shadcn-ui
 - Tailwind CSS
+- EmailJS (for contact form functionality)
 
 ## How can I deploy this project?
 
