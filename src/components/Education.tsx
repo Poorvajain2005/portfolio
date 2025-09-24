@@ -7,7 +7,7 @@ const education = [
     institution: "Amity University",
     location: "Gwalior, India",
     period: "2023 – 2027",
-    gpa: "",
+    gpa: "8.48",
     highlights: [
       "Key Coursework: Data Structures, DBMS, Machine Learning, OS, Software Engineering"
     ],
