@@ -230,7 +230,7 @@ export const Contact = () => {
                     onChange={handleChange}
                     required
                     className="backdrop-blur-sm bg-white/5 border-white/20 focus:border-white/40 focus:ring-2 focus:ring-blue-500/20"
-                    placeholder="jainpoorva535@gmail.com"
+                    placeholder="your.email@example.com"
                   />
                 </div>
               </div>
