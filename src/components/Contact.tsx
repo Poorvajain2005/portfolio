@@ -84,11 +84,6 @@ export const Contact = () => {
     
     window.open(mailtoLink);
     
-    toast({
-      title: "Email client opened!",
-      description: "Your default email client should open with the message ready to send.",
-    });
-    
     setFormData({ name: "", email: "", subject: "", message: "" });
   };
 
