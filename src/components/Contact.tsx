@@ -21,7 +21,7 @@ const contactInfo = [
     color: "text-purple-400",
   },
   {
-    icon: instagram,
+    icon: FaInstagram,
     label:"Instagram",
     value: "poorva_pj_",
     link:"https://instagram.com/poorva_pj_",
