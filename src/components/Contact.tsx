@@ -21,6 +21,13 @@ const contactInfo = [
     color: "text-purple-400",
   },
   {
+    icon: instagram,
+    label:"Instagram",
+    value: "poorva_pj_",
+    link:"https://instagram.com/poorva_pj_",
+    color:"text-pink-400",
+  },
+  {
     icon: Linkedin,
     label: "LinkedIn",
     value: "/in/poorva-jain-92867a2b5",

@@ -102,7 +102,7 @@ return (
         {/* Additional Stats */}
         <div className="mt-16 grid md:grid-cols-3 gap-8">
           <div className="text-center glass-card p-6">
-            <div className="text-2xl font-bold text-gradient-primary mb-2">3.85</div>
+            <div className="text-2xl font-bold text-gradient-primary mb-2">8.56</div>
             <div className="text-sm text-muted-foreground">Overall GPA</div>
           </div>
           <div className="text-center glass-card p-6">
