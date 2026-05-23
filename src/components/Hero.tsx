@@ -1,213 +1,195 @@
-import { Github, Linkedin, Download, ArrowDown } from "lucide-react";
+import { motion } from "framer-motion";
+import { Github, Linkedin, Download, Command, Compass } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const FloatingShape = ({
-  className,
-  delay = 0,
-}: {
-  className?: string;
-  delay?: number;
-}) => (
-  <div
-    className={`absolute rounded-full opacity-20 ${className}`}
-    style={{
-      animationDelay: `${delay}s`,
-      background: "var(--gradient-primary)",
-    }}
-  />
-);
-
-const ParticleElement = ({
-  x,
-  y,
-  delay,
-}: {
-  x: string;
-  y: string;
-  delay: number;
-}) => (
-  <div
-    className="absolute w-1 h-1 bg-white/30 rounded-full"
-    style={{
-      left: x,
-      top: y,
-      animation: `particle-float 8s ease-in-out infinite`,
-      animationDelay: `${delay}s`,
-    }}
-  />
-);
-
 export const Hero = () => {
-  const particles = Array.from({ length: 20 }, (_, i) => ({
-    x: `${Math.random() * 100}%`,
-    y: `${Math.random() * 100}%`,
-    delay: Math.random() * 8,
-  }));
-
-  const scrollToAbout = () => {
+  const scrollToNextNode = () => {
     document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const handleDownload = () => {
+    const link = document.createElement("a");
+    link.href = "/POORVA JAIN resume.pdf";
+    link.download = "POORVA JAIN resume.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen bg-[#050508] text-white flex items-center justify-center overflow-hidden py-24 px-4 md:px-12 selection:bg-purple-500 selection:text-white"
     >
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0">
-        {/* Floating Shapes */}
-        <FloatingShape
-          className="w-64 h-64 -top-32 -left-32 floating"
-          delay={0}
-        />
-        <FloatingShape
-          className="w-48 h-48 top-1/4 -right-24 floating-delayed"
-          delay={2}
-        />
-        <FloatingShape
-          className="w-32 h-32 bottom-1/4 left-1/4 floating"
-          delay={4}
-        />
-        <FloatingShape
-          className="w-40 h-40 -bottom-20 -right-20 floating-delayed"
-          delay={1}
-        />
-
-        {/* Particle Animation */}
-        {particles.map((particle, i) => (
-          <ParticleElement key={i} {...particle} />
-        ))}
-
-        {/* Gradient Overlays */}
-        <div
-          className="absolute inset-0 opacity-30"
-          style={{ background: "var(--gradient-primary)" }}
-        />
-        <div
-          className="absolute inset-0 opacity-20"
-          style={{ background: "var(--gradient-secondary)" }}
+      {/* BACKGROUND VECTOR ENVIRONMENT */}
+      <div className="absolute inset-0 pointer-events-none z-0">
+        <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_20%,#1a102f_0%,transparent_60%)] opacity-40" />
+        <div className="absolute bottom-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_80%,#0c1a24_0%,transparent_60%)] opacity-40" />
+        
+        {/* Fine Architectural Matrix Lines */}
+        <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:40px_40px]" />
+        
+        {/* Subtle glowing horizontal beam */}
+        <motion.div 
+          animate={{ y: ["0vh", "100vh"] }}
+          transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
+          className="absolute left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-purple-500/20 to-transparent w-full"
         />
       </div>
 
-      {/* Hero Content */}
-      <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
-        <div className="space-y-8">
-          {/* Main Heading */}
-          <div className="space-y-6">
-            <div className="relative">
-              <h1 className="font-bold leading-tight text-left">
-                <span className="block">Hey, I'm</span>
-                <span className="block text-gradient-primary text-6xl md:text-8xl lg:text-9xl transform -rotate-1">
-                  Poorva Jain
-                </span>
-              </h1>
-              {/* Quirky annotation */}
-              <div className="absolute -right-4 top-4 rotate-12 text-sm text-yellow-400 font-handwriting hidden md:block">
-                <div className="relative">
-                  <span>← that's me!</span>
-                  <svg
-                    className="absolute -top-2 -left-2 w-8 h-8 text-yellow-400/60"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                </div>
-              </div>
-            </div>
+      {/* COMPOSITIONAL FRAME CONTAINER */}
+      <div className="max-w-7xl w-full mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        {/* LEFT TEXT CONTENT PANEL */}
+        <div className="col-span-1 lg:col-span-8 space-y-10 text-left">
+          
+          {/* Active Lifecycle Telemetry Tag */}
+          <motion.div 
+            initial={{ opacity: 0, x: -15 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-xl bg-white/[0.02] border border-white/5 text-xs font-mono text-amber-400 uppercase tracking-[0.2em]"
+          >
+            <span className="w-2 h-2 bg-amber-400 animate-ping rounded-full" />
+            Ecosystem Pipeline Online // 2026
+          </motion.div>
 
-            {/* Animated Tagline */}
-            <div className="text-left space-y-2">
-              <div className="text-lg md:text-xl text-muted-foreground">
-                I build things that matter
-              </div>
-              <div className="flex flex-wrap gap-2 text-sm">
-                <span className="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full">
-                  Full-Stack Dev
-                </span>
-                <span className="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full">
-                  Data Enthusiast
-                </span>
-                <span className="px-3 py-1 bg-green-500/20 text-green-300 rounded-full">
-                  Coffee Addict ☕
-                </span>
-              </div>
-            </div>
-          </div>
-
-          {/* Description */}
-          <div className="text-left max-w-2xl space-y-4">
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Backend & Frontend Intern – Young Thames | Jun 2025 – Present
-            </p>
-            <p className="text-base text-muted-foreground/80">
-              When I'm not coding, you'll find me exploring new technologies, contributing to open-source projects, and staying active in the tech community.
-            </p>
-          </div>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-start items-start pt-8">
-            <Button
-              className="btn-neon-primary group relative"
-              onClick={() => {
-                const link = document.createElement('a');
-                link.href = '/POORVA JAIN resume.pdf';
-                link.download = 'POORVA JAIN resume.pdf';
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-              }}
+          {/* Epic Masked Headline Block */}
+          <div className="space-y-4">
+            <h1 className="text-5xl sm:text-7xl lg:text-[6.5rem] font-black tracking-tighter uppercase leading-[0.9] text-white">
+              <motion.span 
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="block text-zinc-500"
+              >
+                ENGINEERING
+              </motion.span>
+              <motion.span 
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="block text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-200 to-purple-400"
+              >
+                POORVA JAIN
+              </motion.span>
+            </h1>
+            
+            <motion.p 
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="text-zinc-400 font-serif font-light italic text-xl md:text-2xl tracking-tight max-w-2xl"
             >
-              <Download className="w-5 h-5 mr-2 group-hover:animate-bounce" />
-              Grab my Resume
-              <span className="absolute -top-2 -right-2 w-3 h-3 bg-red-500 rounded-full animate-pulse"></span>
+              Developing automated backend infrastructures and contextual algorithmic machine learning platforms.
+            </motion.p>
+          </div>
+
+          {/* Verified Real-time Residency Log */}
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="p-5 rounded-2xl bg-white/[0.01] border border-white/[0.04] max-w-xl font-mono text-xs text-zinc-400 space-y-2 relative overflow-hidden"
+          >
+            <div className="flex items-center justify-between text-[11px] text-zinc-500 uppercase tracking-wider">
+              <span>// ACTIVE INSTANCE DETAILED</span>
+              <span className="text-cyan-400">STATUS // CURRENT</span>
+            </div>
+            <div className="text-sm font-sans text-zinc-200 font-medium">
+              Technology Intern at CA-Copilot
+            </div>
+            <div className="text-zinc-500 font-light font-sans text-xs">
+              Focusing on deployment logic optimization, custom data flows, and end-to-end API orchestration frameworks.
+            </div>
+          </motion.div>
+
+          {/* Tactical Monospace CTA Actions Block */}
+          <motion.div 
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="flex flex-wrap gap-4 pt-4"
+          >
+            <Button
+              className="rounded-xl px-6 h-12 font-mono text-xs tracking-wider uppercase bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white shadow-lg shadow-purple-500/15 group relative"
+              onClick={handleDownload}
+            >
+              <Download className="w-4 h-4 mr-2 group-hover:translate-y-0.5 transition-transform" />
+              Get System Resume
             </Button>
 
             <Button
-              className="btn-ghost-glow group"
-              onClick={() =>
-                window.open("https://github.com/Poorvajain2005", "_blank")
-              }
+              variant="outline"
+              className="rounded-xl px-5 h-12 font-mono text-xs tracking-wider uppercase bg-transparent border-white/10 text-zinc-300 hover:text-white hover:bg-white/5 transition-all"
+              onClick={() => window.open("https://github.com/Poorvajain2005", "_blank")}
             >
-              <Github className="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform" />
-              My Code
+              <Github className="w-4 h-4 mr-2" />
+              Source Manifest
             </Button>
 
             <Button
-              className="btn-ghost-glow group"
-              onClick={() =>
-                window.open(
-                  "https://linkedin.com/in/poorva-jain-92867a2b5",
-                  "_blank"
-                )
-              }
+              variant="outline"
+              className="rounded-xl px-5 h-12 font-mono text-xs tracking-wider uppercase bg-transparent border-white/10 text-zinc-300 hover:text-white hover:bg-white/5 transition-all"
+              onClick={() => window.open("https://linkedin.com/in/poorva-jain-92867a2b5", "_blank")}
             >
-              <Linkedin className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
+              <Linkedin className="w-4 h-4 mr-2" />
               Let's Connect
             </Button>
-          </div>
+          </motion.div>
 
-          {/* Fun Stats */}
-          <div className="flex flex-wrap gap-6 justify-start pt-6 text-sm text-muted-foreground">
-            <div className="flex items-center gap-2">
-              <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-              <span>Currently available for new opportunities</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span>☕</span>
-              <span>1,247 cups of coffee consumed this year</span>
-            </div>
-          </div>
         </div>
 
-        {/* Scroll Indicator */}
-        <button
-          onClick={scrollToAbout}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 p-2 rounded-full backdrop-blur-sm bg-white/10 border border-white/20 hover:bg-white/20 transition-all duration-300 group"
+        {/* RIGHT METRICAL MATRIX DECK */}
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.97 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="col-span-1 lg:col-span-4 hidden lg:block space-y-4 font-mono text-[11px]"
         >
-          <ArrowDown className="w-6 h-6 text-white group-hover:translate-y-1 transition-transform" />
-        </button>
+          <div className="p-6 rounded-2xl bg-zinc-950/40 border border-white/5 space-y-4">
+            <div className="flex items-center gap-2 text-zinc-500 uppercase tracking-widest">// SYSTEM ATTRIBUTES</div>
+            
+            <div className="space-y-2.5">
+              <div className="flex justify-between py-1.5 border-b border-white/[0.03]">
+                <span className="text-zinc-500">CORE RUNTIME:</span>
+                <span className="text-zinc-200">NODE.JS // PYTHON</span>
+              </div>
+              <div className="flex justify-between py-1.5 border-b border-white/[0.03]">
+                <span className="text-zinc-500">INTELLIGENCE:</span>
+                <span className="text-zinc-200">COMPUTER VISION // ML</span>
+              </div>
+              <div className="flex justify-between py-1.5 border-b border-white/[0.03]">
+                <span className="text-zinc-500">INFRASTRUCTURE:</span>
+                <span className="text-zinc-200">AWS // DOCKER MESH</span>
+              </div>
+              <div className="flex justify-between items-center py-1.5">
+                <span className="text-zinc-500">AVAILABILITY:</span>
+                <span className="px-2 py-0.5 rounded text-[10px] bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 font-bold">
+                  OPEN_TO_OFFERS
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-2 text-zinc-600 justify-end px-2">
+            <Command className="w-3 h-3" />
+            <span>SYS_VERSION // 4.0.26</span>
+          </div>
+        </motion.div>
+
       </div>
+
+      {/* KINETIC MAP ANCHOR BUTTON */}
+      <motion.button
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.8 }}
+        onClick={scrollToNextNode}
+        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex items-center gap-2 font-mono text-[10px] tracking-[0.25em] text-zinc-500 hover:text-white transition-colors group uppercase"
+      >
+        <Compass className="w-4 h-4 text-purple-500 animate-spin transition-transform" style={{ animationDuration: '8s' }} />
+        <span>Scan System Map</span>
+      </motion.button>
     </section>
   );
 };
