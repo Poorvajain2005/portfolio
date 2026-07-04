@@ -1,3 +1,6 @@
+import { useState } from "react";
+import profilePhoto from "/profile.jpg";
+import { motion, AnimatePresence } from "framer-motion";
 import { Award, ExternalLink, ShieldCheck, Bookmark, FileCode } from "lucide-react";
 
 const achievements = [
@@ -62,6 +65,33 @@ const certificates = [
     description: "Awarded for exceptional coursework mastery, system implementations, and image classification model builds.",
     tag: "VISION / CORE",
     pdfPath: "/1758894120539_PoorvaJain_Course-Excellence.pdf"
+  },
+  {
+    id: 4,
+    title: "Oracle Cloud Infrastructure 2025 Certified Generative AI Professional",
+    issuer: "Oracle University",
+    year: "2025",
+    description: "Official professional recognition validating expertise in OCI Generative AI services, large language model configurations, and production deployment parameters.",
+    tag: "OCI / GEN AI",
+    pdfPath: "/oracle.jpeg"
+  },
+  {
+    id: 5,
+    title: "AWS Academy Graduate — Generative AI Foundations",
+    issuer: "AWS Academy",
+    year: "2025",
+    description: "12-hour intensive curriculum track focusing on foundational LLM concepts, architectural pattern optimization, and cloud engineering with prompt tooling.",
+    tag: "AWS / FOUNDATIONS",
+    pdfPath: "https://www.credly.com/badges/b47d8dbe-1f50-45ef-9592-24e4de54a97e"
+  },
+  {
+    id: 6,
+    title: "Lab: Retrieval Augmented Generation with LangChain",
+    issuer: "IBM SkillsBuild",
+    year: "2025",
+    description: "Hands-on execution of data engineering pipelines for RAG systems, orchestrating context extraction mechanisms and vector structures with LangChain frameworks.",
+    tag: "RAG / LANGCHAIN",
+    pdfPath: "/ragibm.jpeg"
   }
 ];
 

@@ -11,8 +11,8 @@ const projects = [
     image: "/fixit.png",
     tags: ["React", "Firebase", "Node", "Computer Vision"],
     category: "AI & Automation",
-    github: "https://github.com/Poorvajain2005/fixit",
-    demo: "https://vercel.com/poorvajain2005s-projects/fix-it",
+    github: "https://github.com/Poorvajain2005/fixitstar",
+    demo: "https://fixitstar-y4c1.vercel.app/",
     accent: "from-emerald-500/20 via-transparent"
   },
   {

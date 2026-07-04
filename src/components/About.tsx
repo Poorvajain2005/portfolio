@@ -3,8 +3,8 @@ import profilePhoto from "/profile.jpg";
 import { motion, AnimatePresence } from "framer-motion";
 
 const structuralSkills = {
-  infrastructure: ["Node.js", "Express.js", "JWT Authentication", "Docker Containers", "AWS Cloud", "Git Versioning", "Postman Architecture"],
-  intelligence: ["Python Engines", "Predictive ML Pipelines", "Scikit-learn Models", "C++ Systems", "Java Enterprise"],
+  infrastructure: ["Node.js", "Express.js", "Azure Data Factory", "ETL Data Pipelines", "AWS Cloud", "Git Versioning"],
+  intelligence: ["Python Engines", "Generative AI Architectures", "Predictive ML Pipelines", "Scikit-learn Models", "C++ Systems"],
   persistence: ["SQL Relational", "MySQL Clusters", "MongoDB Schemas", "Firebase Realtime Systems"],
   interfaces: ["JavaScript Core", "TypeScript Typings", "React.js Frameworks", "Tailwind CSS Layouts"]
 };
@@ -21,7 +21,7 @@ export const About = () => {
   return (
     <section id="about" className="relative bg-[#fafafa] text-[#121214] py-36 px-4 md:px-16 overflow-hidden border-b border-zinc-200 selection:bg-black selection:text-white">
       
-      {/* 1. STRUCTURAL GRID MESH (No glows, pure architectural framing lines) */}
+      {/* 1. STRUCTURAL GRID MESH */}
       <div className="absolute inset-0 grid grid-cols-1 md:grid-cols-12 pointer-events-none px-4 md:px-16">
         {[...Array(13)].map((_, i) => (
           <div key={i} className="border-r border-zinc-200/60 h-full w-full first:border-l last:border-r-0" />
@@ -30,7 +30,7 @@ export const About = () => {
 
       <div className="max-w-7xl mx-auto relative z-10">
         
-        {/* EDITORIAL BANNER HEADING (Massive scale typographic hierarchy) */}
+        {/* EDITORIAL BANNER HEADING */}
         <header className="mb-28 grid grid-cols-1 md:grid-cols-12 gap-6 items-end border-b border-zinc-900 pb-10">
           <div className="col-span-1 md:col-span-8">
             <span className="block text-xs font-mono tracking-[0.3em] text-zinc-400 uppercase mb-4">
@@ -56,7 +56,7 @@ export const About = () => {
               I balance absolute back-end runtime authority with contextual computational intelligence. I specialize in stripping away template abstraction to construct fast, production-ready full-stack software and raw data workflows.
             </p>
 
-            {/* Kinetic Metrics Stack (Physics-driven interaction) */}
+            {/* Kinetic Metrics Stack */}
             <div className="space-y-6 pt-12 border-t-2 border-zinc-900">
               {metrics.map((metric) => (
                 <motion.div
@@ -79,7 +79,7 @@ export const About = () => {
           {/* RIGHT COLUMN: Rigid Structural Frame & Segment Matrix */}
           <div className="col-span-1 lg:col-span-7 grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
             
-            {/* Profile Frame: Pure Print Layout Aesthetic */}
+            {/* Profile Frame */}
             <div className="md:col-span-6 relative bg-zinc-100 p-3 border border-zinc-300 shadow-sm group">
               <div className="absolute -top-1.5 -left-1.5 w-3 h-3 bg-zinc-900" />
               <div className="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-zinc-900" />
@@ -102,7 +102,6 @@ export const About = () => {
                   // CAPABILITY MATRIX
                 </span>
                 
-                {/* Asymmetric Typography Navigation Stack */}
                 <nav className="flex flex-col gap-2">
                   {(Object.keys(structuralSkills) as Array<keyof typeof structuralSkills>).map((track) => {
                     const isSelected = activeTrack === track;
@@ -176,13 +175,11 @@ export const About = () => {
                   </motion.ul>
                 </AnimatePresence>
               </div>
-
             </div>
           </div>
-
         </div>
 
-        {/* INDUSTRIAL BRUTALIST RUNTIME TICKER (Pure CSS-grade physical velocity) */}
+        {/* INDUSTRIAL BRUTALIST RUNTIME TICKER */}
         <footer className="mt-36 pt-10 border-t-4 border-zinc-900 overflow-hidden w-full">
           <motion.div 
             animate={{ x: [0, -800] }}
